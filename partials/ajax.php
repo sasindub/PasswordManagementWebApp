@@ -2,8 +2,8 @@
 
 require_once 'user.php';
 
-extract($_POST);
+if(isset($_POST['sname'])){
+    $dataArr = array($_POST['sname'], $_POST['semail'], $_POST['mobile'], $_POST['spass']);
 
-if($_POST['type'] == 'insert'){
-    echo $user->insertData($data);
+   echo $user->insertData($dataArr);
 }

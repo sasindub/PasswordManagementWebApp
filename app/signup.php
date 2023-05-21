@@ -72,7 +72,7 @@ input[type=submit]:hover {
               
               
               Mobile
-              <input type="text" id="semail" name="semail" class="w-100 p-1 rounded" placeholder="(+94)xxx-xxxxxxx" required />
+              <input type="text" id="mobile" name="mobile" class="w-100 p-1 rounded" placeholder="(+94)xxx-xxxxxxx" required />
                 
               
 
@@ -108,6 +108,23 @@ input[type=submit]:hover {
               <p  class="">All ready have an account <a href="../index.php" id="cancel_reset">Log in</a></p>
 
             </form>
+
+
+            <form action="" id="emailConfirm">
+              <div style="background-color: #f3f3f3;">
+              <div class="form-outline mb-3">
+              Confirmation Code
+                
+                <input type="text" id="code" name="code" class="w-100 p-1 rounded" placeholder="xxxx" min="4" max="4" required />
+              </div>
+
+
+            <hr>
+
+           
+              </div>
+            </form>
+
 
           </div>
         </div>

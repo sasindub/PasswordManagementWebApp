@@ -9,10 +9,10 @@ Class User extends Database{
     //Insert data
     public function insertData($data){
 
-        $name = "";
-        $mobile = 0;
-        $email = "";
-        $pass = password_hash("samath", PASSWORD_DEFAULT);
+        $name = $data[0];
+        $mobile = $data[2];
+        $email = $data[1];
+        $pass = password_hash($data[3], PASSWORD_DEFAULT);
         try{
 
             $stmt = $this->conn->prepare("INSERT INTO {$this->tableName} (uname, mobile, email, password) VALUES (:uname, :mobile, :email, :pass)");
