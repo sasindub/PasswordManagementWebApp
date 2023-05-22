@@ -25,7 +25,7 @@
             <input type="email" id="inputEmail" class="" placeholder="Email address" required="" autofocus="">
             <input type="password" id="inputPassword" class="" placeholder="Password" required="">
             
-            <button class="btn btn-success btn-block w-100" style="" type="submit"><i class="fas fa-sign-in-alt"></i> Log in</button>
+            <button class="btn btn-success btn-block w-100"  type="submit"><i class="fas fa-sign-in-alt"></i> Log in</button>
             <a href="#" id="forgot_pswd" class="mb-5">Forgot password?</a>
             <hr>
             

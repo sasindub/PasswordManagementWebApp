@@ -51,8 +51,14 @@ input[type=submit]:hover {
         <center><img class="ms-5" style="height:100px;  border-bottom-left-radius: 100px; border-bottom-right-radius: 100px;" src="../img/lgg.png" alt=""></center>
        
           <div class="card-body ">
+         <!-- error -->
+         <div  id="er">
 
-            <form class="px-md-2">
+         </div>
+         <center><div id="snipper"></div></center>
+        
+          
+            <form class="px-md-2" id="signup">
 
               
              Name
@@ -72,7 +78,7 @@ input[type=submit]:hover {
               
               
               Mobile
-              <input type="text" id="semail" name="semail" class="w-100 p-1 rounded" placeholder="(+94)xxx-xxxxxxx" required />
+              <input type="text" id="mobile" name="mobile" class="w-100 p-1 rounded" placeholder="(+94)xxx-xxxxxxx" required />
                 
               
 
@@ -80,7 +86,7 @@ input[type=submit]:hover {
           
              
               Password
-              <input type="password" id="spass" name="spass" class="w-100 p-1 rounded" placeholder="ex: Jhone Colabs" required />
+              <input type="password" id="spass" name="spass" class="w-100 p-1 rounded" placeholder="Enter your password" required />
                 
              
 
@@ -88,7 +94,7 @@ input[type=submit]:hover {
               <div class="form-outline mb-3">
               Re-Password
                 
-                <input type="password" id="scpass" name="scpass" class="w-100 p-1 rounded" placeholder="ex: Jhone Colabs" required />
+                <input type="password" id="scpass" name="scpass" class="w-100 p-1 rounded" placeholder="Re-enter your password" required />
               </div>
 
 
@@ -109,6 +115,26 @@ input[type=submit]:hover {
 
             </form>
 
+
+            <form action="" id="emailConfirm">
+              <div style="background-color: #f3f3f3;">
+              
+              Confirmation Code
+                
+              
+
+                <div class="block"><input type="text" id="code" name="code"  placeholder="xxxx" class="input-res"></div>
+
+             
+
+
+            <hr>
+
+           
+              </div>
+            </form>
+
+
           </div>
         </div>
       </div>
@@ -123,5 +149,8 @@ bootstraps -->
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
 
+<!-- singup.js linked -->
+<script src="../js/signup1.js"></script>
+ 
 </body>
 </html>

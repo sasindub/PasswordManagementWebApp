@@ -15,8 +15,6 @@ Class Database{
             $option = array(PDO::ATTR_PERSISTENT);
 
             $this->conn = new PDO($dns, $this->dbuser, $this->dbpass, $option);
-
-            echo "done";
         }catch(PDOException $e){
             echo $e->getMessage();
         }
