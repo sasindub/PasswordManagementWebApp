@@ -51,7 +51,10 @@ input[type=submit]:hover {
         <center><img class="ms-5" style="height:100px;  border-bottom-left-radius: 100px; border-bottom-right-radius: 100px;" src="../img/lgg.png" alt=""></center>
        
           <div class="card-body ">
-
+         <!-- error -->
+          <div class="alert alert-danger" id="err" role="alert">
+ 
+          </div>
             <form class="px-md-2" id="signup">
 
               
@@ -80,7 +83,7 @@ input[type=submit]:hover {
           
              
               Password
-              <input type="password" id="spass" name="spass" class="w-100 p-1 rounded" placeholder="ex: Jhone Colabs" required />
+              <input type="password" id="spass" name="spass" class="w-100 p-1 rounded" placeholder="Enter your password" required />
                 
              
 
@@ -88,7 +91,7 @@ input[type=submit]:hover {
               <div class="form-outline mb-3">
               Re-Password
                 
-                <input type="password" id="scpass" name="scpass" class="w-100 p-1 rounded" placeholder="ex: Jhone Colabs" required />
+                <input type="password" id="scpass" name="scpass" class="w-100 p-1 rounded" placeholder="Re-enter your password" required />
               </div>
 
 
@@ -112,11 +115,14 @@ input[type=submit]:hover {
 
             <form action="" id="emailConfirm">
               <div style="background-color: #f3f3f3;">
-              <div class="form-outline mb-3">
+              
               Confirmation Code
                 
-                <input type="text" id="code" name="code" class="w-100 p-1 rounded" placeholder="xxxx" min="4" max="4" required />
-              </div>
+              
+
+                <div class="block"><input type="text" id="code" name="code"  placeholder="xxxx" class="input-res"></div>
+
+             
 
 
             <hr>
@@ -141,7 +147,7 @@ bootstraps -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
 
 <!-- singup.js linked -->
-<script src="../js/signup.js"></script>
+<script src="../js/signup1.js"></script>
  
 </body>
 </html>

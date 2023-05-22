@@ -34,7 +34,26 @@ Class User extends Database{
         }
     }
 
-    //Get email 
+    // Email validation
+    
+    public function emailValidation($email){
+        try{
+            $stmt =$this->conn->prepare("SELECT email FROM {$this->tableName} WHERE email = :email");
+            $stmt->bindParam(":email", $email);
+
+            if($stmt->execute()){
+                if($stmt->rowCount() > 0){
+                    return 1;
+                }else{
+                    return 0;
+                }
+            }
+
+        }catch(PDOException $e){
+            echo $e->getMessage();
+            $this->conn->rollBack();
+        }
+    }
 
 
     //update password
