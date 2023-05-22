@@ -52,9 +52,12 @@ input[type=submit]:hover {
        
           <div class="card-body ">
          <!-- error -->
-          <div class="alert alert-danger" id="err" role="alert">
- 
-          </div>
+         <div  id="er">
+
+         </div>
+         <center><div id="snipper"></div></center>
+        
+          
             <form class="px-md-2" id="signup">
 
               

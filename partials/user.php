@@ -45,13 +45,40 @@ Class User extends Database{
                 if($stmt->rowCount() > 0){
                     return 1;
                 }else{
+                    //if the email is not available then send the email verification code 
+
+                    // ini_set( 'display_errors', 1 );
+                    // error_reporting( E_ALL );
+                    
+                    // $from = "tioss.infor@gmail.com";
+                    // $to = $email;
+                    // $subject = "lockMe Confirmation code: ";
+                    // $message = 'Your e-mail confirmation code is <span style="font-size:25pt;"><b>".rand(00000,99999)."</b><span>';
+                    // $headers = "From: {$from}\r\nContent-Type: text/html;";
+                    
+                    // if(mail($to,$subject,$message, $headers)) {
+                    //     return "sent";
+                    // } else {
+                    //     return 0;
+                    // }
+
                     return 0;
+                
                 }
             }
 
         }catch(PDOException $e){
             echo $e->getMessage();
             $this->conn->rollBack();
+        }
+    }
+
+    //email confirmation code
+    public function confirmEmailCode($code){
+        try{
+
+        }catch(PDOException $e){
+            echo $e->getMessage();
         }
     }
 
