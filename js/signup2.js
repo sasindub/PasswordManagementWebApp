@@ -7,8 +7,8 @@ $(document).ready(function(){
    $("#signup").submit(function(e){
     e.preventDefault();
 
-    // $("#signup").hide();
-    // $("#snipper").html('<div class="spinner-border m-5" role="status"></div>');
+    $("#signup").hide();
+    $("#snipper").html('<div class="spinner-border m-5" role="status"></div>');
 
     const email = $("#semail").val();
    
@@ -53,6 +53,7 @@ $(document).ready(function(){
 
                             $("#er").html('<div class="alert alert-success" role="alert">You have signed up successfully!</div>');
                             $("#err").hide();
+                            $("#snipper").hide();
 
                             setTimeout(function(){window.location.replace(
                                 "../index.php");},5000);
@@ -121,5 +122,8 @@ $(document).ready(function(){
    });
     
    
+
+
+
 
 });

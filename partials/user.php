@@ -22,7 +22,11 @@ Class User extends Database{
             $stmt->bindParam(":email", $email);
             $stmt->bindParam(":pass", $pass);
 
+            $this->conn->beginTransaction();
+
+
             if($stmt->execute()){
+                $this->conn->commit();
                 return 0;
             }else{
                 return 1;
@@ -86,7 +90,31 @@ Class User extends Database{
     //update password
 
     //login
+    public function login($email, $pass){
+        try{
 
+            $stmt = $this->conn->prepare("SELECT password From {$this->tableName} WHERE email = :email");
+            $stmt->bindParam(":email", $email);
+
+            if($stmt->execute()){
+                if($stmt->rowCount() > 0){
+                    if($row=$stmt->fetch(PDO::FETCH_ASSOC)){
+                        if(password_verify($pass,$row['password'])){
+                            return 0;
+                        }else{
+                            return 1;
+                        }
+                    }
+                }else{
+                    return 1;
+                }
+            }
+
+        }catch(PDOException $e){
+            echo $e->getMessage();
+            $this->conn->rollback();
+        }
+    }
 
 }
 

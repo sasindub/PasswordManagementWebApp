@@ -1,6 +1,8 @@
 <?php
 
 require_once 'user.php';
+
+//Sign up interaction with database
 //insertData
 if(isset($_POST['sname'])){
     $dataArr = array($_POST['sname'], $_POST['semail'], $_POST['mobile'], $_POST['spass']);
@@ -21,3 +23,11 @@ if(isset($_POST['type'])){
     }
 
 }
+
+//login interaction with database
+
+
+if(isset($_POST['inputPassword']) && isset($_POST['inputEmail'])){
+   echo $user->login($_POST['inputEmail'],$_POST['inputPassword']);
+}
+
