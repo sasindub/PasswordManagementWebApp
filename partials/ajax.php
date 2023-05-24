@@ -22,6 +22,14 @@ if(isset($_POST['type'])){
         echo $user->confirmEmailCode($_POST['code']);
     }
 
+    //Account page interactions
+
+    //check category availability
+
+    if($_POST['type'] == 'catCheck'){
+        echo "jugath";
+    }
+
 }
 
 //login interaction with database
