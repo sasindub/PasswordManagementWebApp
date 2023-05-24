@@ -15,15 +15,24 @@
 </head>
 <body>
 
+<div id="snipper" class="justify-content-center text-center" style="
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 10px;">
 
+</div>
 
 <div id="logreg-forms" >
 <center><img class="" style="height:100px; border-bottom-left-radius: 100px; border-bottom-right-radius: 100px; " src="img/logo.png" alt=""></center>
-        <form class="form-signin" >
+        <form class="form-signin" id="login" >
             <!-- <h1 class="h3 mb-3 font-weight-normal" style="text-align: center"> Log in</h1> -->
 
-            <input type="email" id="inputEmail" class="" placeholder="Email address" required="" autofocus="">
-            <input type="password" id="inputPassword" class="" placeholder="Password" required="">
+            <div id="er"></div>
+
+            <input type="email" id="inputEmail" name="inputEmail" class="" placeholder="Email address" required="" autofocus="">
+            <input type="password" id="inputPassword" name="inputPassword" class="" placeholder="Password" required="">
             
             <button class="btn btn-success btn-block w-100"  type="submit"><i class="fas fa-sign-in-alt"></i> Log in</button>
             <a href="#" id="forgot_pswd" class="mb-5">Forgot password?</a>
@@ -50,6 +59,6 @@
 bootstraps -->
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
-
+<script src="js/login.js"></script>
 </body>
 </html>
