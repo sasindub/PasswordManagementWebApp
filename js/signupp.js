@@ -75,6 +75,8 @@ $(document).ready(function(){
                     $("#err").text("Password is not matching!");
                     $("#scpass").css("backgroundColor","#fad4d4");
                     $("#err").show();
+                    $("#snipper").hide();
+                    $("#signup").show();
                 }
 
         }

@@ -12,6 +12,16 @@
   <link rel="icon" type="image/x-icon" href="../img/logo.png">
   <style>
     
+    body {
+  position: relative;
+}
+
+body::after {
+  content: '';
+  display: block;
+  height: 100px; /* Set same as footer's height */
+}
+
     .containerr {
   display: block;
   position: relative;
@@ -103,7 +113,7 @@
       .boxx{
       
         overflow-y: auto;
-      	height: 90px;
+      	height: 70px;
     }
 
       @media screen and (max-width:500px){
@@ -125,7 +135,7 @@
       }
 
       .footer {
-   position: fixed;
+  
    left: 0;
    bottom: 0;
    width: 100%;
@@ -134,7 +144,13 @@
    text-align: center;
    padding-top: 20px;
    padding-bottom: 10px;
+
+   position: absolute;
+  bottom: 0;
+
 }
+
+
 
 .inp{
   border-radius: 5px; padding: 5px; width:100%; border: 1px solid white; background-color: #e6e6e8;
@@ -159,7 +175,7 @@
   height: 40px;
   border-radius: 50%; float:right;">
   <div style="color:#065471; position:absolute; 
-  transform: translate(100%,    0%); font-size:20pt; ">s</div>
+  transform: translate(90%,    20%); font-size:16pt; " id="p1">F</div>
 
 </div>
  
@@ -172,28 +188,33 @@
     height: 40px;
     border-radius: 50%;">
     <div style="color:#065471; position:absolute; 
-    transform: translate(100%,  -105%); font-size:20pt; ">s</div>
+    transform: translate(60%,  -110%); font-size:16pt; " id="p">W</div>
     </div>
 
-  <p style="float:right; margin-top:15px; margin-right:21px; font-size:15pt;">Samantha</p>
+  <p style="float:right; margin-top:15px; margin-right:21px; font-size:15pt;" id="nme"></p>
   
   <br><br><br>
 
         <div class=" " style="text-align: center;">
 
         <div id="userDetails">
-            <p> <b> Name </b>: Sanath Nishantha</p>
-            <p><b> E-mail </b>: Sanath Nishantha</p>
-            <p><b> Mobile </b>: Sanath Nishantha</p>
+            <p> <b> Name </b>: <span id="nm">Sanath Nishantha</span> </p>
+            <p><b> E-mail </b>: <span id="mail">Sanath Nishantha</span> </p>
+            <p><b> Mobile </b>: <span id="mob">Sanath Nishantha</span> </p>
         </div>    
             
             <div style="text-align: center;">
-            <p style="font-size:10pt; "><span style="font-size:20pt; "> 05 </span> <span style="background-color: green; color:white; padding:2px; border-radius: 5px;">Passwords Saved </span> </p>
+            <p style="font-size:10pt; "><span style="font-size:20pt; " id="count"> 05 </span> <span style="background-color: green; color:white; padding:2px; border-radius: 5px;">Passwords Saved </span> </p>
             </div>
+
+            <div style="text-align: center;">
+            <button style="text-align: center; background-color: #065471; color: white; border-radius: 5px; margin-bottom: 15px;" data-toggle="modal" data-target="#lgout" >Log out</button>
+          </div>
 
         </div>
 
   
+       
 
   </div>
 
@@ -213,8 +234,10 @@
 
 <h3>My Passwords</h3>
 
+<div id="smsg">
 
-  <div class="row">
+</div>
+  <div class="row" id="data">
 
     <div class="col-md-2 col-sm-1" style="margin-bottom:3px;">
         <div class="card" style="width: 18rem; border:2px solid #065471; padding:10px; border-radius: 20px;" >
@@ -260,6 +283,7 @@
 </div>
 
 <?php include 'passmodal.php'?>
+<?php include 'logoutConfirm.php'?>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
@@ -267,7 +291,7 @@
 bootstraps -->
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
-<script src="../js/account.js"></script>
+<script src="../js/accountt.js"></script>
 
 </body>
 </html>
