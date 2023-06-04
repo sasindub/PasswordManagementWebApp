@@ -2,6 +2,8 @@
 
 require_once 'database.php';
 
+session_start();
+
 Class User extends Database{
 
     private $tableName = "users";
@@ -21,7 +23,7 @@ Class User extends Database{
             $stmt->bindParam(":mobile",$mobile);
             $stmt->bindParam(":email", $email);
             $stmt->bindParam(":pass", $pass);
-
+ 
             $this->conn->beginTransaction();
 
 
@@ -93,13 +95,20 @@ Class User extends Database{
     public function login($email, $pass){
         try{
 
-            $stmt = $this->conn->prepare("SELECT password From {$this->tableName} WHERE email = :email");
+            $stmt = $this->conn->prepare("SELECT * From {$this->tableName} WHERE email = :email");
             $stmt->bindParam(":email", $email);
+
+          
 
             if($stmt->execute()){
                 if($stmt->rowCount() > 0){
                     if($row=$stmt->fetch(PDO::FETCH_ASSOC)){
                         if(password_verify($pass,$row['password'])){
+                            $_SESSION['username'] = $row['uname'];
+                            $_SESSION['uid'] = $row['uid'];
+                            $_SESSION['tele'] = $row['mobile'];
+                            $_SESSION['email'] = $row['email'];
+                           
                             return 0;
                         }else{
                             return 1;
@@ -115,6 +124,19 @@ Class User extends Database{
             $this->conn->rollback();
         }
     }
+
+    //get login details
+    public function getLogins(){
+        if(isset($_SESSION['username'])){
+            $arr = array($_SESSION['username'], $_SESSION['uid'], $_SESSION['tele'], $_SESSION['email'] ); 
+            $jsn = json_encode($arr);
+            return $jsn;
+        }else{
+            return 1;
+        }
+    }
+
+   
 
 }
 
