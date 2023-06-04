@@ -23,7 +23,7 @@ Class User extends Database{
             $stmt->bindParam(":mobile",$mobile);
             $stmt->bindParam(":email", $email);
             $stmt->bindParam(":pass", $pass);
-
+ 
             $this->conn->beginTransaction();
 
 
@@ -108,6 +108,7 @@ Class User extends Database{
                             $_SESSION['uid'] = $row['uid'];
                             $_SESSION['tele'] = $row['mobile'];
                             $_SESSION['email'] = $row['email'];
+                           
                             return 0;
                         }else{
                             return 1;
@@ -121,6 +122,17 @@ Class User extends Database{
         }catch(PDOException $e){
             echo $e->getMessage();
             $this->conn->rollback();
+        }
+    }
+
+    //get login details
+    public function getLogins(){
+        if(isset($_SESSION['username'])){
+            $arr = array($_SESSION['username'], $_SESSION['uid'], $_SESSION['tele'], $_SESSION['email'] ); 
+            $jsn = json_encode($arr);
+            return $jsn;
+        }else{
+            return 1;
         }
     }
 

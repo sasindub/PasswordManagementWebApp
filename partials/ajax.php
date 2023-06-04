@@ -36,14 +36,10 @@ if(isset($_POST['type'])){
     //get user details
     if($_POST['type'] == 'userdetails'){
 
-        if(isset($_SESSION['username'])){
-            $arr = array($_SESSION['username'], $_SESSION['uid'], $_SESSION['tele'], $_SESSION['email'] ); 
-            $jsn = json_encode($arr);
-            echo $jsn;
-        }else{
-            
-            echo 1;
-        }
+       
+            echo $user->getLogins();
+          
+        
     }
 
     //add password data
@@ -67,6 +63,7 @@ if(isset($_POST['type'])){
 
 if(isset($_POST['inputPassword']) && isset($_POST['inputEmail'])){
    echo $user->login($_POST['inputEmail'],$_POST['inputPassword']);
+
 }
 
 
