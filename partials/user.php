@@ -124,14 +124,7 @@ Class User extends Database{
         }
     }
 
-    public function addData($pass, $user, $des, $cat, $slevel){
-        try{
-            $stmt = $this->conn->prepare("INSERT INTO {$this->tableName} ");
-        }catch(PDOException $e){    
-            echo $e->getMessage();
-            $this->conn->rollBack();
-        }
-    }
+   
 
 }
 

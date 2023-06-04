@@ -137,9 +137,7 @@ input[type=email], select {
     
 }
 
-.inp{
-  border-radius: 5px; padding: 5px; width:100%; border: 1px solid white; background-color: #e6e6e8;
-}
+
 
 /* signup page */
 @media (min-width: 1025px) {
