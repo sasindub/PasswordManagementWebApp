@@ -277,13 +277,13 @@ body::after {
   </div>
 </div>
 
-
 <div class="footer">
     <p>Copyright © 2023 lockMe®. All rights reserved. <br> Designed and Developed by TIOSS</p>
 </div>
 
 <?php include 'passmodal.php'?>
 <?php include 'logoutConfirm.php'?>
+<?php include 'secureModal.php'?>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
@@ -291,7 +291,7 @@ body::after {
 bootstraps -->
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
-<script src="../js/accountt.js"></script>
+<script src="../js/accoun.js"></script>
 
 </body>
 </html>

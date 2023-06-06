@@ -1,6 +1,15 @@
 $(document).ready(function(){
 
 
+    $.ajax({
+        url: "partials/logout.php",
+        type: "post",
+        data: {data:"data"},
+        success: function(data){
+            console.log(data);
+        }
+    });
+
     $("#login").submit(function(e){
         e.preventDefault();
         $("#snipper").show();

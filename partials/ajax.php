@@ -56,6 +56,17 @@ if(isset($_POST['type'])){
     if($_POST['type'] == 'getdata'){
         echo $pass->getData();
     }
+
+    //secure alert password confirmation (View)
+    if($_POST['type'] == 'passView'){
+        echo $pass->getSecureLevel($_POST['id']);
+    }
+
+    //get all the details of a password (view)
+    if($_POST['type'] == 'confirmSecure'){
+        echo $pass->getAllDetailsPass($_POST['pasSecure']);
+    }
+
 }
 
 //login interaction with database

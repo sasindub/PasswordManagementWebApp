@@ -103,7 +103,7 @@ Class PasswordDetails extends Database{
                                 <div class="boxx">
                                 <p class="card-text">'.$row['de'].'</p>
                                 </div>                
-                                <a href="#" class="card-link" style="background-color: #065471; color:white; border-radius: 4px; padding: 3px 6px 3px 6px;" id="'.$row['pid'].'">View</a>
+                                <a href="#" class="view card-link" style="background-color: #065471; color:white; border-radius: 4px; padding: 3px 6px 3px 6px;" id="'.$row['pid'].'">View</a>
                             </div>
                         </div> 
                     </div>';
@@ -119,6 +119,84 @@ Class PasswordDetails extends Database{
             $e->getMessage();
             $this->conn->rollBack();
         }
+    }
+
+    //get the secure level
+    public function getSecureLevel($id){
+        try{
+            $sql = $this->conn->prepare("SELECT security_level FROM {$this->tableName} WHERE pid = :id");
+            $sql->bindParam("id", $id);
+            
+            if($sql->execute()){
+                if($sql->rowCount() > 0){
+                    if($row = $sql->fetch(PDO::FETCH_ASSOC)){
+                        $_SESSION['passId'] = $id;  
+                        return $row['security_level'];
+                    }else{
+                        return 1;
+                    }
+                }else{
+                    return 1;
+                }
+            }
+            
+        }catch(PDOException $e){
+            echo $e->getMessage();
+        }
+    }
+
+    //password checking
+    private function passCheck($pass){
+        try{
+            $sql = $this->conn->prepare("SELECT password FROM users WHERE email = :email");
+            $sql->bindParam("email", $_SESSION['email']);
+
+            $sql->execute();
+            if($sql->rowCount() > 0){
+                if($row = $sql->fetch(PDO::FETCH_ASSOC)){
+                    if(password_verify($pass, $row['password'])){
+                        return true;
+                    }else{
+                        return false;
+                    }
+                }else{
+                    return false;
+                }
+            }
+
+        }catch(PDOException $e){
+            $e->getMessage();
+        }
+    }
+
+    //get the all details of a password
+    public function getAllDetailsPass($pass){
+        try{
+
+            //check password correct or not
+            $passTrue = $this->passCheck($pass);
+                
+                if($passTrue){
+                    $sql = $this->conn->prepare("SELECT * FROM {$this->tableName} WHERE pid = :pid");
+                    $sql->bindParam("pid", $_SESSION['passId']);
+
+                    if($sql->execute()){
+                        if($sql->rowCount() > 0){
+                            if($row = $sql->fetch(PDO::FETCH_ASSOC)){
+                                return $row['user_name'];
+                            }
+                        }else{  
+                            return 1;
+                        }
+                    }
+                }else{
+                    return 1;
+                }
+
+        }catch(PDOException $e){
+            echo $e->getMessage();
+        }
+
     }
 }
 

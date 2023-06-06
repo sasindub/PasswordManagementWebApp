@@ -1,5 +1,6 @@
 $(document).ready(function(){
     
+    $("#secPassError").hide();
     getDetails();
     //get userdetails
     $.ajax({
@@ -188,5 +189,71 @@ $(document).ready(function(){
         });
         
     });
+
+
+    //click on view 
+    $(document).on("click", ".view", function(e){
+        e.preventDefault();
+        const id = this.id;
+
+        $.ajax({
+            url: "../partials/ajax.php",
+            type: "post",
+            data: {id:id,
+                   type:"passView" },
+            beforeSend: function(){
+             
+            },
+            success: function(data){
+                
+                if(data == "high"){
+                    alert("You should confirm the password!");
+                jQuery.noConflict(); 
+                jQuery('#secureModal').modal('show'); 
+                }else if(data == 1){
+                    alert("Something went wrong!");
+                }else{
+                    window.location.replace("../app/view.php");
+                }
+            },
+            error: function(error){
+                console.log(error);
+            }       
+        });
+    });
+
+    //click on secure alert close btn
+    $("#clsModal").on("click", function(e){
+        e.preventDefault();
+
+        window.location.replace("../index.php");
+    });
     
+    //click on secure alert confirm and get the password details
+    $("#passCon").on("click", function(e){
+        e.preventDefault();
+        
+        var pasSecure = $("#securePass").val();
+        $.ajax({
+            url: "../partials/ajax.php",
+            type: "post",
+            data: {type : "confirmSecure",
+                pasSecure: pasSecure},
+            success: function(data){
+                if(data != 1){
+                    window.location.replace("../app/view.php");
+                }else{
+                    $("#secPassError").show();
+
+                    setTimeout(function(){
+                        window.location.replace("../index.php");
+                    }, 2000);
+                }
+            },error: function(error){
+                console.log(error);
+            }
+        });
+
+
+    });
 });
