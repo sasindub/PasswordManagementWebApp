@@ -256,4 +256,29 @@ $(document).ready(function(){
 
 
     });
+  
+    //search
+    $("#search").on("keyup", function(e){
+       e.preventDefault();
+    
+        var search = $("#search").val();
+        
+       $.ajax({
+        url: "../partials/ajax.php",
+        type: "post",
+        data: {search : search,
+                type: "search"},
+                success: function(data){
+                  if(data != 1){
+                    $("#data").html(data);
+                  }else{
+                    $("#data").html('<div class="alert alert-primary" style="background-color: #787777; opacity:0.6; color:white; border-radius: 10px; text-align:center; padding:3px;" role="alert"> No Data </div>');
+                  }
+                },
+                error: function(error){
+                    console.log(error);
+                }
+       });
+    });
+
 });

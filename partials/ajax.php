@@ -67,6 +67,13 @@ if(isset($_POST['type'])){
         echo $pass->getAllDetailsPass($_POST['pasSecure']);
     }
 
+    //search
+    if($_POST['type'] == "search"){
+        echo $pass->search($_POST['search']);
+    }
+
+
+
 }
 
 //login interaction with database

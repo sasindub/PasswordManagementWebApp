@@ -34,7 +34,7 @@ Class PasswordDetails extends Database{
 
             $stmt->bindParam(":pass", $pass);
             $stmt->bindParam(":cat", $cat);
-            $stmt->bindParam(":slevel", $slevel);
+            $stmt->bindParam(":slevel", $slevel); 
             $stmt->bindParam(":des", $des);
             $stmt->bindParam(":uname", $user);
             $stmt->bindParam(":uid", $_SESSION['uid']);
@@ -197,6 +197,54 @@ Class PasswordDetails extends Database{
             echo $e->getMessage();
         }
 
+    }
+
+    //search
+
+    public function search($search){
+        try{
+            $sch = "%".$search."%";
+            $sql = $this->conn->prepare("SELECT * FROM {$this->tableName} WHERE user_name LIKE :search OR security_level LIKE :search OR de LIKE :search OR category LIKE :search");
+            $sql->bindParam("search", $sch);
+
+            if($sql->execute()){
+                if($sql->rowCount() > 0){
+                    $data = '';
+                    while($row = $sql->fetch(PDO::FETCH_ASSOC)){
+                       
+                        if( $row['security_level'] == 'low'){
+                            $sec = '<span class="badge badge-primary" style="background-color:blue; opacity: 0.6">Low</span>';
+                        }else if ($row['security_level'] == 'mid'){
+                            $sec = '<span class="badge badge-warning" style="background-color:orange; opacity: 0.6">Mid</span>';
+                        }else{
+                            $sec = '<span class="badge badge-danger" style="background-color:red; opacity: 0.6">High</span>';
+                        }
+
+                    
+
+                        $data .= '<div class="col-md-2 col-sm-1" style="margin-bottom:10px;">
+                        <div class="card" style="width: 18rem; border:2px solid #065471; padding:10px; border-radius: 20px;" >
+                            <div class="card-body">
+                                <h4 class="card-title">'.substr($row['category'], 0, 15).'</h4>
+                             '.$sec.'
+                
+                                <div class="boxx">
+                                <p class="card-text">'.$row['de'].'</p>
+                                </div>                
+                                <a href="#" class="view card-link" style="background-color: #065471; color:white; border-radius: 4px; padding: 3px 6px 3px 6px;" id="'.$row['pid'].'">View</a>
+                            </div>
+                        </div> 
+                    </div>';
+                    }
+                    return $data;
+                }else{
+                    return 1;
+                }
+            }
+
+        }catch(PDOException $e){
+            echo $e->getMessage();
+        }
     }
 }
 

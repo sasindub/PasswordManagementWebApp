@@ -239,35 +239,8 @@ body::after {
 </div>
   <div class="row" id="data">
 
-    <div class="col-md-2 col-sm-1" style="margin-bottom:3px;">
-        <div class="card" style="width: 18rem; border:2px solid #065471; padding:10px; border-radius: 20px;" >
-            <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+   
 
-                <div class="boxx">
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content. >A fixed navigation bar stays visible in a fixed position (top or bottom) independent of the page scroll.>A fixed navigation bar stays visible in a fixed position (top or bottom) independent of the page scroll.</p>
-                </div>
-
-                <a href="#" class="card-link" style="background-color: #065471; color:white; border-radius: 4px; padding: 3px 6px 3px 6px;">View</a>
-            </div>
-        </div> 
-    </div>
-
-    <div class="col-md-2 col-sm-1" style="margin-bottom:3px;">
-        <div class="card" style="width: 18rem; border:2px solid #065471; padding:10px; border-radius: 20px;" >
-            <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-
-                <div class="boxx">
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content. >A fixed navigation bar stays visible in a fixed position (top or bottom) independent of the page scroll.>A fixed navigation bar stays visible in a fixed position (top or bottom) independent of the page scroll.</p>
-                </div>
-
-                <a href="#" class="card-link" style="background-color: #065471; color:white; border-radius: 4px; padding: 3px 6px 3px 6px;">View</a>
-            </div>
-        </div> 
-    </div>
 
 
     
@@ -291,7 +264,7 @@ body::after {
 bootstraps -->
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
-<script src="../js/accoun.js"></script>
+<script src="../js/accountts.js"></script>
 
 </body>
 </html>
