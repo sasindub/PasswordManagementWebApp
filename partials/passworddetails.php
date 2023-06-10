@@ -170,7 +170,7 @@ Class PasswordDetails extends Database{
     }
 
     //get the all details of a password
-    public function getAllDetailsPass($pass){
+    public function checkSecurePass($pass){
         try{
 
             //check password correct or not
@@ -244,6 +244,29 @@ Class PasswordDetails extends Database{
 
         }catch(PDOException $e){
             echo $e->getMessage();
+        }
+    }
+
+    public function getAllPassData(){
+        try{
+            $sql = $this->conn->prepare("SELECT * FROM {$this->tableName} WHERE pid = :pid");
+            $sql->bindParam("pid", $_SESSION['passId']);
+            
+            if($sql->execute()){
+                if($sql->rowCount() > 0 ){
+                    if($row = $sql->fetch(PDO::FETCH_ASSOC)){
+                        return $row['password'].$row['category'];
+                    }else{
+                        return 1;
+                    }
+                }else{
+                    return 1;
+                }
+            }
+
+        }catch(PDOException $e){
+            $e->getMessage();
+            $this->conn->rollBack();
         }
     }
 }

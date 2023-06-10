@@ -64,7 +64,7 @@ if(isset($_POST['type'])){
 
     //get all the details of a password (view)
     if($_POST['type'] == 'confirmSecure'){
-        echo $pass->getAllDetailsPass($_POST['pasSecure']);
+        echo $pass->checkSecurePass($_POST['pasSecure']);
     }
 
     //search
@@ -72,6 +72,12 @@ if(isset($_POST['type'])){
         echo $pass->search($_POST['search']);
     }
 
+    //VIEW PAGE
+
+    //get Pass data
+    if($_POST['type'] == "getPassData"){
+        echo $pass->getAllPassData();
+    }
 
 
 }

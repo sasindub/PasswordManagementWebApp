@@ -194,7 +194,7 @@ $(document).ready(function(){
     //click on view 
     $(document).on("click", ".view", function(e){
         e.preventDefault();
-        const id = this.id;
+        let id = this.id;
 
         $.ajax({
             url: "../partials/ajax.php",
@@ -256,11 +256,12 @@ $(document).ready(function(){
 
 
     });
-  
+
     //search
     $("#search").on("keyup", function(e){
        e.preventDefault();
     
+       
         var search = $("#search").val();
         
        $.ajax({
@@ -280,5 +281,6 @@ $(document).ready(function(){
                 }
        });
     });
+
 
 });
