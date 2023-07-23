@@ -15,11 +15,9 @@ $(document).ready(function(){
                 var dat = $.parseJSON(data);
                 $("#nm").text(dat[0]);
                 $("#mob").text(dat[2]);
-                $("#mail").text(dat[1]);
+                $("#mail").text(dat[3]);
                 $("#nme").text(dat[0].slice(0,12));
                 count();
-                alert(dat[1])
-                alert(dat[3])
             
                 $("#p").text((dat[0].slice(0,1)).toUpperCase());
                 $("#p1").text((dat[0].slice(0,1)).toUpperCase());
