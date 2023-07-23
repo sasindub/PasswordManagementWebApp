@@ -2,7 +2,7 @@
 
 Class Database{
     private $dbhost = "localhost";
-    private $dbname = "passwordmanagement";
+    private $dbname = "passwordmanage";
     private $dbpass = "";
     private $dbuser = "root";
 
