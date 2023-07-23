@@ -1,5 +1,6 @@
 $(document).ready(function(){
     
+    $("#secPassError").hide();
     getDetails();
     //get userdetails
     $.ajax({
@@ -188,5 +189,98 @@ $(document).ready(function(){
         });
         
     });
+
+
+    //click on view 
+    $(document).on("click", ".view", function(e){
+        e.preventDefault();
+        let id = this.id;
+
+        $.ajax({
+            url: "../partials/ajax.php",
+            type: "post",
+            data: {id:id,
+                   type:"passView" },
+            beforeSend: function(){
+             
+            },
+            success: function(data){
+                
+                if(data == "high"){
+                    alert("You should confirm the password!");
+                jQuery.noConflict(); 
+                jQuery('#secureModal').modal('show'); 
+                }else if(data == 1){
+                    alert("Something went wrong!");
+                }else{
+                    window.location.replace("../app/view.php");
+                }
+            },
+            error: function(error){
+                console.log(error);
+            }       
+        });
+    });
+
+    //click on secure alert close btn
+    $("#clsModal").on("click", function(e){
+        e.preventDefault();
+
+        window.location.replace("../index.php");
+    });
     
+    //click on secure alert confirm and get the password details
+    $("#passCon").on("click", function(e){
+        e.preventDefault();
+        
+        var pasSecure = $("#securePass").val();
+        $.ajax({
+            url: "../partials/ajax.php",
+            type: "post",
+            data: {type : "confirmSecure",
+                pasSecure: pasSecure},
+            success: function(data){
+                if(data != 1){
+                    window.location.replace("../app/view.php");
+                }else{
+                    $("#secPassError").show();
+
+                    setTimeout(function(){
+                        window.location.replace("../index.php");
+                    }, 2000);
+                }
+            },error: function(error){
+                console.log(error);
+            }
+        });
+
+
+    });
+
+    //search
+    $("#search").on("keyup", function(e){
+       e.preventDefault();
+    
+       
+        var search = $("#search").val();
+        
+       $.ajax({
+        url: "../partials/ajax.php",
+        type: "post",
+        data: {search : search,
+                type: "search"},
+                success: function(data){
+                  if(data != 1){
+                    $("#data").html(data);
+                  }else{
+                    $("#data").html('<div class="alert alert-primary" style="background-color: #787777; opacity:0.6; color:white; border-radius: 10px; text-align:center; padding:3px;" role="alert"> No Data </div>');
+                  }
+                },
+                error: function(error){
+                    console.log(error);
+                }
+       });
+    });
+
+
 });
